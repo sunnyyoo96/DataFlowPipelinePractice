@@ -17,7 +17,7 @@ with DAG(
     schedule_interval='0 0 * * *',
     start_date=pendulum.datetime(2025, 3, 11, tz="Asia/Seoul"),
     catchup=False,
-    tags=['sa'],
+    tags=['sa']
 ) as dag:
     bash_t1 = BashOperator(
         task_id='bash_t1',
