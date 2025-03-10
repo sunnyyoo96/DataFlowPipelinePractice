@@ -34,7 +34,7 @@ with DAG(
 # In[32]:
 
 
-get_ipython().system('jupyter nbconvert --to script dags_bash_operator_my.ipynb')
+#get_ipython().system('jupyter nbconvert --to script dags_bash_operator_my.ipynb')
 
 
 # In[ ]:
