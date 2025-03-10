@@ -17,8 +17,7 @@ with DAG(
     schedule_interval='0 0 * * *',
     start_date=pendulum.datetime(2025, 3, 11, tz="Asia/Seoul"),
     catchup=False,
-    dagrun_timeout=timedelta(minutes=60),
-    tags=['sa'],
+    tags=['sa']
 ) as dag:
     bash_t1 = BashOperator(
         task_id='bash_t1',
@@ -26,7 +25,7 @@ with DAG(
     )
 
     bash_t2 = BashOperator(
-        task_id='bash_t1',
+        task_id='bash_t2',
         bash_command='echo sayoo2',
     )
     bash_t1 >> bash_t2
