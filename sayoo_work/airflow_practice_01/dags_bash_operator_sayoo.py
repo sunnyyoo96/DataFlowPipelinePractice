@@ -13,7 +13,7 @@ import pendulum
 # 캐치업 변수 - 캐치 업 : DAG가 내부적으로 백필을 수행하는 경우 캐치 업을 해제
 
 with DAG(
-    dag_id='dags_bash_operator',
+    dag_id='dags_bash_operator_sayoo',
     schedule_interval='0 0 * * *',
     start_date=pendulum.datetime(2025, 3, 11, tz="Asia/Seoul"),
     catchup=False,
