@@ -1,6 +1,6 @@
+from airflow import DAG
 import pendulum
 import datetime
-from airflow import DAG
 from airflow.operators.empty import EmptyOperator
 
 with DAG(
@@ -9,7 +9,6 @@ with DAG(
         start_date=pendulum.datetime(2025, 3, 18, tz="Asia/Seoul"),
         catchup=False
 ) as dag:
-
     t1 = EmptyOperator(task_id="t1")
     t2 = EmptyOperator(task_id="t2")
     t3 = EmptyOperator(task_id="t3")
