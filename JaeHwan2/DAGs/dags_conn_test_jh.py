@@ -15,7 +15,7 @@ from airflow.operators.empty import EmptyOperator
 
 
 with DAG(
-    dag_id='dags_conn_jh',
+    dag_id='dags_conn_test_jh',
     schedule_interval=None,
     start_date=pendulum.datetime(2025, 3, 18,tz="Asia/Seoul"),
     catchup=False,
