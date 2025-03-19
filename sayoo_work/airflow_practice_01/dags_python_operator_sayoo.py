@@ -9,7 +9,7 @@ import random
 with DAG(
     dag_id='dags_python_operator_sayoo',
     schedule_interval='30 6 * * *',
-    start_date=pendulum.datetime(2025, 3, 10, tz="Asia/Seoul"),
+    start_date=pendulum.datetime(2025, 3, 19, tz="Asia/Seoul"),
     catchup=False,
     tags=['sa']
 ) as dag:
