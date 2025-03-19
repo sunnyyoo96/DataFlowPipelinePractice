@@ -15,7 +15,7 @@ with DAG(
 ) as dag:
     def select_fruit():
         fruit = ['APPLE', 'ORANGE', 'BANANA', 'AVOCADO', 'MANGO']
-        random_int = random.randint(0, len(fruit))
+        random_int = random.randint(0, len(fruit)-1)
         print(fruit[random_int])
 
 
