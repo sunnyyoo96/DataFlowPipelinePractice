@@ -13,7 +13,7 @@ with DAG(
     # 함수 기반 으로 실행을 하는 오퍼레이터
     def select_fruit():
         fruit = ['APPLE', 'BANANA', 'AVOCADO', 'ORANGE']
-        rand_int = random.randint(0, len(fruit))  # 0 ~ 3 개중 랜덤으로 실행
+        rand_int = random.randint(0, len(fruit) -1)  # 0 ~ 3 개중 랜덤으로 실행
         print(fruit[rand_int])
 
 
