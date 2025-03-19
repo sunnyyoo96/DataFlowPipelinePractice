@@ -8,7 +8,7 @@ import pendulum
 from airflow import DAG
 import datetime
 from airflow.operators.python import PythonOperator
-from plugins.common.common_func import minyoung
+from common.common_func import minyoung
 
 
 # In[19]:
