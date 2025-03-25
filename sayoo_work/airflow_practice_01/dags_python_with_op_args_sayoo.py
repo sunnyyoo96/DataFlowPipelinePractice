@@ -15,3 +15,7 @@ with DAG(
         python_callable=regist,
         op_args=['sayoo','girl','kr','Dongtan']
     )
+    # *BranchPythonOperator: task를
+    # 선택적으로 실행(분기 처리)
+    regist_t1
+
