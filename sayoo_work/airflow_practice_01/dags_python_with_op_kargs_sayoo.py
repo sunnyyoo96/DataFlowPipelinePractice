@@ -14,7 +14,7 @@ with DAG(
         task_id="regist_t2_sayoo",
         python_callable = regist,
         op_args=["sayoo","girl","kr","Dongtan"],
-        op_kargs={
+        op_kwargs={
                   'email':'y4380@naver.com',
                   'address' : '유림 노르웨이 숲'
         }
