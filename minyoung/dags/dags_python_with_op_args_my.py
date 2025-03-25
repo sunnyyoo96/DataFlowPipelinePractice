@@ -15,7 +15,7 @@ from common.common_func import regist
 
 
 with DAG(
-    dag_id = dags_python_with_op_args_my",
+    dag_id = dags_python_with_op_args_my,
     schedule = "30 20 * * *",
     start_date = pendulum.datetime(2025, 3, 25, tz="Asia/Seoul"),
     catchup=False
