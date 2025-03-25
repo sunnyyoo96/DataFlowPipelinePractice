@@ -28,7 +28,7 @@ with DAG(
         op_kargs = {'email' : 'cjh8523@naver.com','phone':'010-2598-3520'}
     )
 
-    regist_t2
+    regist_t2_1
 
 
 # In[ ]:
