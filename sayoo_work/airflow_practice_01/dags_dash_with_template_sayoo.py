@@ -3,8 +3,6 @@ import pendulum
 import datetime
 from airflow.operators.bash import BashOperator
 
-from airflow_practice_01.dags_bash_operator_sayoo import bash_t1
-
 with DAG(
     dag_id='dags_dash_with_template_sayoo',
     schedule= '10 20 * * 4#4',  ## 넷째주 목요일 8시 30분 분 시 일 월 요일
