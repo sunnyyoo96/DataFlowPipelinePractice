@@ -4,7 +4,7 @@ import datetime
 from airflow.operators.bash import BashOperator
 
 with DAG(
-        dag_id='dags.dags_bash_with_template_hswoo',
+        dag_id='dags_bash_with_template_hswoo',
         schedule='10 0 * * *',
         start_date=pendulum.datetime(2025, 3, 27, tz="Asia/Seoul"),
         catchup=False,
@@ -30,4 +30,4 @@ with DAG(
         bash_command='echo $START_DATE && echo $END_DATE'
     )
 
-    [bash_t1, bash_t2] > bash_t3
+    [bash_t1, bash_t2] >> bash_t3
