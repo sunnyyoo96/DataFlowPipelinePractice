@@ -1,6 +1,6 @@
 from airflow import DAG
 import pendulum
-from airflow.decorators import dag, task
+from airflow.decorators import task
 
 # dag_id 파일명과 일치시키는 것이 좋음 - dag 명
 # schedule_interval - 분 시 일 월
