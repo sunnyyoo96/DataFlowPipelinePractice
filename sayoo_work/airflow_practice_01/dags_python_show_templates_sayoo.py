@@ -14,7 +14,7 @@ with DAG(
     tags=['sa']
 ) as dag:
 
-    @task(task_id = 'python task')
+    @task(task_id = 'python_task')
     def show_templates(**kwargs):
         from pprint import pprint
         pprint(kwargs)
