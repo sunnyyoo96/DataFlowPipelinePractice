@@ -15,7 +15,7 @@ from airflow.decorators import task
 
 with DAG(
     dag_id = "dags_python_show_templates_my",
-    shedule = "00 20 * * *",
+    schedule = "00 20 * * *",
     start_date = pendulum.datetime(2025, 4, 7, tz = "Asia/Seoul"),
     tags = ['mychoi'],
     catchup = True
