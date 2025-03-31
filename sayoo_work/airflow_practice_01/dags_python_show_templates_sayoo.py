@@ -8,7 +8,7 @@ from airflow.decorators import dag, task
 
 with DAG(
     dag_id='dags_python_show_templates_sayoo',
-    schedule='30 19 * * *',
+    schedule_interval='30 19 * * *',
     start_date=pendulum.datetime(2025, 3, 31, tz="Asia/Seoul"),
     catchup=True,
     tags=['sa']
