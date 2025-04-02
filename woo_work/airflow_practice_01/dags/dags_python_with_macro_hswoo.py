@@ -10,13 +10,12 @@ with DAG(
         catchup=False,  # ex) 현재 3/1 , start_date 1/1 -> 사이에 누락된 구간을 돌릴지에 대한 유/무, 순차대로 돌는게 아닌 한번에 실행됨
         tags=['hswoo'],  # 진짜 tag
 ) as dag:
-
     @task(
         task_id='task_using_macros',
         templates_dict={
-            'start_date': '{{ (date_interval_end.in_timezone("Asia/Seoul")  + macros.datautil.relativedelta.relativedelta(months=-1, days=1)) | ds }}'
+            'start_date': '{{ (data_interval_end.in_timezone("Asia/Seoul")  + macros.dateutil.relativedelta.relativedelta(months=-1, day=1)) | ds }}'
             ,
-            'end_date': '{{ (data_interval_end.in_timezone("Asia/Seoul").replace( days=1) + macros.datautil.relativedelta.relativedelta(days=-1)) | ds  }}'
+            'end_date': '{{ (data_interval_end.in_timezone("Asia/Seoul").replace( day=1) + macros.dateutil.relativedelta.relativedelta(day=-1)) | ds  }}'
         }
     )
     def get_datetime_macro(**kwargs):
@@ -32,7 +31,6 @@ with DAG(
         task_id='task_direct_calc'
     )
     def get_datetime_calc(**kwargs):
-
         # 스케줄러 부하 경감을 통한. 위에 import를 아래로 변경
         from dateutil.relativedelta import relativedelta
 
