@@ -10,6 +10,7 @@ import pendulum
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 from dateutil import relativedelta
+from airflow.decorators import task
 
 
 # In[ ]:
