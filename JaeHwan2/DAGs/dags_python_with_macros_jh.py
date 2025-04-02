@@ -13,7 +13,7 @@ from dateutil import relativedelta
 from airflow.decorators import task
 
 
-# In[7]:
+# In[10]:
 
 
 with DAG(
@@ -36,7 +36,7 @@ with DAG(
             print(end_date)
 
     @task(task_id='task_direct_calc')
-     def get_datetime_calc(**kwargs):
+    def get_datetime_calc(**kwargs):
         from dateutil.relativedelta import relativedelta
          
         data_interval_end = kwargs['data_interval_end']
