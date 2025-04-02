@@ -1,7 +1,6 @@
 import pendulum
 from airflow import DAG
 from airflow.operators.bash import BashOperator
-from dateutil.relativedelta import relativedelta
 
 # 실제 DAG 생성
 with DAG(
@@ -15,8 +14,10 @@ with DAG(
     bash_task_1 = BashOperator(
         task_id='bash_task_1',
         env={
-            'START_DATE': '{{ date_interval_start }}',
-            'END_DATE': '{{ date_interval_end + relativedelta(days=-1) }}'
+            # template에서 선언한 날짜는 .in_timezone("Asia/Seoul")이 추가됨
+            'START_DATE': '{{ date_interval_start.in_timezone("Asia/Seoul") | ds}}',
+            # marcos.dateutil -> import dateutil
+            'END_DATE': '{{ (date_interval_end.in_timezone("Asia/Seoul") - macros.dateutil.relativedelta.relativedelta(days=1)) | ds }}'
         },
         bash_command='echo "START_DATE: $START_DATE" && echo "END_DATE: $END_DATE"',
     )
