@@ -10,6 +10,10 @@ with DAG(
         catchup=False,  # ex) 현재 3/1 , start_date 1/1 -> 사이에 누락된 구간을 돌릴지에 대한 유/무, 순차대로 돌는게 아닌 한번에 실행됨
         tags=['hswoo'],  # 진짜 tag
 ) as dag:
+    '''
+        day 파라미터는 특정 일자를 지정합니다.
+        days 파라미터는 일수를 더하거나 뺍니다.
+    '''
     @task(
         task_id='task_using_macros',
         templates_dict={
