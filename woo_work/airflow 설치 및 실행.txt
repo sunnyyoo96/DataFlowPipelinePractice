@@ -1,0 +1,63 @@
+* 242번 서버
+# venv 생성
+python3 -m venv airflow_venv
+
+# 가상환경 활성화
+source airflow_venv/bin/activate
+
+# pip 최신화
+pip install --upgrade pip
+
+# Airflow 홈 디렉토리 설정
+export AIRFLOW_HOME=~/airflow
+
+# Airflow 및 Python 버전 설정
+AIRFLOW_VERSION=2.2.3  # 원하는 버전을 입력하세요.
+PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
+
+# 제약 조건 파일 URL 설정
+CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+
+# Airflow 설치
+pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+
+
+# SQLite 다운로드 및 설치
+wget https://sqlite.org/2021/sqlite-autoconf-3340100.tar.gz
+tar zxvf sqlite-autoconf-3340100.tar.gz
+cd sqlite-autoconf-3340100
+
+./configure --prefix=/usr/local
+make && make install
+
+# 환경 변수 설정
+echo "/usr/local/lib" > /etc/ld.so.conf.d/sqlite.conf
+ldconfig
+
+# Python에서 SQLite 버전 확인
+python -c "import sqlite3; print(sqlite3.sqlite_version)"
+
+# sql 에러시 
+# GCC 설치
+yum groupinstall -y "Development Tools"
+
+# 설치된 GCC 버전 확인
+gcc --version
+
+# 데이터베이스 초기화
+airflow db init
+
+# 사용자 생성 (예: admin 계정)
+airflow users create \
+    --username admin \
+    --firstname Admin \
+    --lastname User \
+    --role Admin \
+    --email admin@example.com \
+    --password admin
+
+# 웹서버 실행 (포트 8080)
+airflow webserver --port 8080 &
+
+# 스케줄러 실행
+airflow scheduler &
